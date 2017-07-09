@@ -8,6 +8,7 @@ enum Player { nought = 0, cross, empty };
 class TicTacToeEnv {
 public:
     TicTacToeEnv();
+    std::vector<Player> getGrid();
     bool checkIfWinning(Player player);
     bool makeMove(Player player, int cell);
     bool isWinning(Player player);
@@ -16,9 +17,9 @@ public:
     void printGame();
 
 private:
+    std::vector<Player> grid_;
     // 0, 1 are for players.
     // 2 is for empty cell.
-    std::vector<Player> grid_;
 };
 
 #endif

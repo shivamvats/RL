@@ -39,6 +39,8 @@ bool TicTacToeEnv::isWinning(Player player) {
     return false;
 }
 
+std::vector<Player> TicTacToeEnv::getGrid() { return grid_; }
+
 bool TicTacToeEnv::gameOver() {
     bool fullGrid = !std::any_of(grid_.begin(), grid_.end(),
                                  [&](Player p) { return p == empty; });
@@ -58,9 +60,11 @@ Player TicTacToeEnv::winner() {
 }
 
 void TicTacToeEnv::printGame() {
+    std::cout << "=============\n";
     std::cout << grid_[0] << "|" << grid_[1] << "|" << grid_[2] << "\n";
     std::cout << "------\n";
     std::cout << grid_[3] << "|" << grid_[4] << "|" << grid_[5] << "\n";
     std::cout << "------\n";
     std::cout << grid_[6] << "|" << grid_[7] << "|" << grid_[8] << "\n";
+    std::cout << "=============\n";
 }
